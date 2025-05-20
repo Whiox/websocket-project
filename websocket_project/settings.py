@@ -25,8 +25,19 @@ SECRET_KEY = 'django-insecure-8bt%t5092fg7@rzo@8a^6$=bjw$=%vwh!aa@yg!v0pg$bibt+4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
+
+ASGI_APPLICATION = "websocket_project.asgi.application"
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Application definition
 
@@ -37,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
+    'websocket_app',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +67,9 @@ ROOT_URLCONF = 'websocket_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'websocket_app/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

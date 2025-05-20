@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Чат: {{ room_name }}</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    #chat-log { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: scroll; }
+    #chat-message-input { width: 80%; }
+    #chat-message-submit { width: 15%; }
+  </style>
+</head>
+<body>
+  <h1>Комната: {{ room_name }}</h1>
+  <div id="chat-log"></div>
+
+  <input id="chat-message-input" type="text" placeholder="Введите сообщение…">
+  <button id="chat-message-submit">Отправить</button>
+
+  <script>
+    (function() {
+      const roomName = "{{ room_name }}";
+      const chatLog = document.getElementById('chat-log');
+      const inputEl = document.getElementById('chat-message-input');
+      const submitBtn = document.getElementById('chat-message-submit');
+
+      const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+      const socket = new WebSocket(
+        protocol + '://' + window.location.host +
+        '/ws/chat/' + roomName + '/'
+      );
+
+      socket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        const msg = document.createElement('div');
+        msg.textContent = data.message;
+        chatLog.appendChild(msg);
+        chatLog.scrollTop = chatLog.scrollHeight;
+      };
+
+      socket.onopen = function() {
+        console.log('WebSocket открыт');
+      };
+
+      socket.onclose = function() {
+        console.log('WebSocket закрыт');
+      };
+
+      submitBtn.onclick = function() {
+        const message = inputEl.value;
+        if (!message) return;
+        socket.send(JSON.stringify({ 'message': message }));
+        inputEl.value = '';
+      };
+
+      // Отправка по Enter
+      inputEl.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+          submitBtn.click();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
