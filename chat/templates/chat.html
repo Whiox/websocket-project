@@ -53,7 +53,7 @@
         socket.onmessage = function (e) {
             const data = JSON.parse(e.data);
             const msg = document.createElement('div');
-            msg.textContent = data.message;
+            msg.textContent = data.sender + ': ' +data.message;
             chatLog.appendChild(msg);
             chatLog.scrollTop = chatLog.scrollHeight;
         };
