@@ -36,7 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'channels',
-    'websocket_app',
+    'authentication',
+    'home',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -59,11 +61,15 @@ CHANNEL_LAYERS = {
     },
 }
 
+AUTH_USER_MODEL = "authentication.User"
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'websocket_app/templates',
+            'chat/templates',
+            'home/templates',
+            'authentication/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

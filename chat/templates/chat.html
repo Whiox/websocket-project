@@ -35,6 +35,7 @@
 <script>
     (function () {
         const roomName = "{{ room_name }}";
+        const roomId = "{{ room_id }}"
         const chatLog = document.getElementById('chat-log');
         const inputEl = document.getElementById('chat-message-input');
         const submitBtn = document.getElementById('chat-message-submit');
@@ -42,7 +43,7 @@
         const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
         const socket = new WebSocket(
             protocol + '://' + window.location.host +
-            '/ws/chat/' + roomName + '/'
+            '/ws/chat/' + roomId + '/'
         );
 
         socket.onopen = () => console.log('[WS] connected');
@@ -72,7 +73,6 @@
             inputEl.value = '';
         };
 
-        // Отправка по Enter
         inputEl.addEventListener('keyup', function (e) {
             if (e.key === 'Enter') {
                 submitBtn.click();
