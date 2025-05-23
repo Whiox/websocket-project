@@ -15,7 +15,7 @@ RUN pip install --upgrade pip \
 
 COPY . /app/
 
-#RUN python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --no-input
 
 RUN python manage.py makemigrations
 RUN python manage.py migrate
