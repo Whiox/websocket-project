@@ -1,15 +1,27 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" theme="light">
 <head>
     <meta charset="UTF-8">
     <title>Homepage</title>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/header.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/authentication/forms.css' %}">
+
     {% block head %}
     {% endblock head %}
 </head>
 <body>
-{% block content %}
-{% endblock content %}
+{% include 'header.html' %}
+
+<main class="main-wrapper">
+    {% block content %}
+    {% endblock content %}
+</main>
+
 </body>
 </html>

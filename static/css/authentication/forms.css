@@ -1,0 +1,41 @@
+
+.form-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+    border: 1px solid var(--main-border);
+    border-radius: 4px;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--link-color);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    padding: 10px;
+    text-align: center;
+}
+
+.form-group .btn {
+    width: 80%;
+    margin-top: 40px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.form-error {
+    margin-top: 0.25rem;
+    color: #ff4d4d;
+    font-size: 0.875rem;
+}

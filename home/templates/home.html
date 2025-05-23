@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <a href="{% url 'create_chat' %}">Создать канал</a>
+    <div class="main-content">
+        <a href="{% url 'create_chat' %}" class="btn">Создать чат</a>
+    </div>
 {% endblock content %}

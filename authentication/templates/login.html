@@ -1,9 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Отправить</button>
-    </form>
+    <div class="main-content">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <h1>Вход в аккаунт</h1>
+
+                {% for field in form %}
+                    <label for="{{ field.id_for_label }}"></label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="form-error">{{ field.errors }}</div>
+                    {% endif %}
+                {% endfor %}
+
+                <button type="submit" class="btn">Войти</button>
+            </div>
+        </form>
+    </div>
+
+    <style>
+        .main-content {
+            width: 20%;
+        }
+    </style>
 {% endblock content %}

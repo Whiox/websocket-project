@@ -1,0 +1,78 @@
+:root {
+    --background-color: #333333;
+    --header-color: #151515;
+    --link-color: #ff6200;
+    --hover-linc-color: #f85f01;
+    --main-border: #ff6a00;
+    --main-color: #303030;
+    --text-color: #fff;
+}
+
+:root[theme="light"] {
+    --background-color: #ffffff;
+    --header-color: #efefef;
+    --link-color: #4dc621;
+    --hover-linc-color: #47bf1b;
+    --main-border: #4dc621;
+    --main-color: #f6f6f6;
+    --text-color: #000000;
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--text-color);
+}
+
+.main-wrapper {
+    flex: 1; /* забирает всю высоту после header/footer */
+    display: flex;
+    justify-content: center; /* центр по горизонтали */
+    align-items: center; /* центр по вертикали */
+    background-color: var(--background-color);
+}
+
+.main-content {
+    width: 70%;
+    max-width: 1000px;
+    border: 1px solid var(--main-border);
+    border-radius: 10px;
+    padding: 20px;
+    background: var(--main-color);
+    color: var(--header-color);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+a {
+    color: var(--link-color);
+}
+
+.btn {
+    background-color: var(--link-color);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--hover-linc-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

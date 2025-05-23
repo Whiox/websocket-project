@@ -1,2 +1,4 @@
 # websocket-project
-Just websocket testing
+Just ~~websocket testing~~ css practice
+
+linc: chat.code-io.ru
