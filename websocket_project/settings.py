@@ -26,6 +26,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = ["https://chat.code-io.ru"]
+
 # Application definition
 
 INSTALLED_APPS = [
