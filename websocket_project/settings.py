@@ -66,6 +66,8 @@ CHANNEL_LAYERS = {
 
 AUTH_USER_MODEL = "authentication.User"
 
+LOGIN_URL = "/auth/login/"
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
