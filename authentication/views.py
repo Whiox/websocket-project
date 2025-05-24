@@ -44,4 +44,4 @@ class LogoutView(View):
     def get(request):
         if request.user.is_authenticated:
             logout(request)
-        return redirect('')
+        return redirect('/')

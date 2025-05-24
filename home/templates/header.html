@@ -1,26 +1,23 @@
 <header>
-    <div class="header-wrapper">
-        <a href="{% url 'home' %}"><div id="logo"></div></a>
-        <nav class="navbar">
-            <ul id="menu">
-                {% if request.user.is_authenticated %}
-                    <li class="menu-item"><a href="#">Мои чаты</a></li>
-                    <li class="menu-item"><a href="{% url 'create_chat' %}">Создать чат</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-        <div id="user-area">
-            <nav class="navbar">
-                <ul class="menu">
-                    {% if request.user.is_authenticated %}
-                        <li class="menu-item"><a href="{% url 'logout' %}">Выйти</a></li>
-                        <div id="avatar"></div>
-                    {% else %}
-                        <li class="menu-item"><a href="{% url 'login' %}">Войти</a></li>
-                        <li class="menu-item"><a href="{% url 'register' %}">Зарегистрироваться</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
+    <a href="{% url 'home' %}">
+        <div class="logo"></div>
+    </a>
+    <nav class="navbar">
+        <ul class="linc-area">
+            {% if request.user.is_authenticated %}
+                <li class="menu-item"><a href="#">Мои чаты</a></li>
+                <li class="menu-item"><a href="{% url 'create_chat' %}">Создать чат</a></li>
+            {% endif %}
+        </ul>
+
+        <div class="user-area">
+            {% if request.user.is_authenticated %}
+                <li class="menu-item"><a href="{% url 'logout' %}">Выйти</a></li>
+                <div class="avatar"></div>
+            {% else %}
+                <li class="menu-item"><a href="{% url 'login' %}">Войти</a></li>
+                <li class="menu-item"><a href="{% url 'register' %}">Зарегистрироваться</a></li>
+            {% endif %}
         </div>
-    </div>
+    </nav>
 </header>

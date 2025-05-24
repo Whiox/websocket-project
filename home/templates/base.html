@@ -16,12 +16,12 @@
     {% endblock head %}
 </head>
 <body>
-{% include 'header.html' %}
+    {% include 'header.html' %}
 
-<main class="main-wrapper">
-    {% block content %}
-    {% endblock content %}
-</main>
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
 
 </body>
 </html>

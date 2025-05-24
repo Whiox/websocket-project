@@ -1,64 +1,44 @@
-/* header.css */
-header {
-  position: sticky;
-  top: 0;
-  width: 70%;
-  margin: 0 auto;
-  background-color: var(--header-color);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  z-index: 100;
+.logo {
+    width: 120px;
+    height: 40px;
+    background: url('/static/assets/logo.png') no-repeat center / contain;
 }
 
-.header-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  height: 60px; /* или свой размер */
+.navbar {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
 }
 
-#logo {
-  /* сюда помести фон-изображение или размер логотипа */
-  width: 120px;
-  height: 40px;
-  background: url('/static/assets/logo.png') no-repeat center / contain;
+.navbar .linc-area {
+    display: flex;
 }
 
-/* Главное меню */
-.navbar #menu {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
+.linc-area .menu-item {
+    list-style: none;
+    text-decoration: none;
+    color: var(--link-color);
+    padding: 8px 12px;
 }
 
-.navbar .menu-item {
-  list-style: none;
-  margin-left: 20px;
+.user-area {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+
+    gap: 20px;
 }
 
-.navbar .menu-item a {
-  text-decoration: none;
-  color: var(--link-color);
-  padding: 8px 12px;
+.user-area .menu-item {
+    list-style: none;
+    text-decoration: none;
 }
 
-.navbar .menu-item a:hover {
-  color: var(--hover-linc-color);
-}
-
-/* Зона пользователя */
-#user-area {
-  display: flex;
-  align-items: center;
-}
-
-#user-area #avatar {
-  width: 32px;
-  height: 32px;
-  background: url('/static/assets/default_avatar.png') no-repeat center / cover;
-  border-radius: 50%;
-  cursor: pointer;
+.user-area .avatar {
+    width: 46px;
+    height: 46px;
+    background: url('/static/assets/default_avatar.png') no-repeat center / cover;
+    border-radius: 50%;
+    cursor: pointer;
 }

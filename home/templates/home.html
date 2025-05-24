@@ -1,7 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="main-content">
-        <a href="{% url 'create_chat' %}" class="btn">Создать чат</a>
-    </div>
+    <h1>Websocket project</h1>
+    <h2>Проект для практики websocket, css, js</h2>
+    <a href="{% url 'create_chat' %}" class="btn">Создать чат</a>
+
+    <style>
+        main {
+            width: 30%;
+            height: 500px;
+
+            text-align: center;
+            display: flex;
+
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            width: 40%;
+            margin: 40px;
+        }
+    </style>
+
 {% endblock content %}
